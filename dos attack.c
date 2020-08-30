@@ -7,17 +7,18 @@
 #include <pthread.h>
 #include <time.h>
 void* child();
-char buf[2000];
+char buf[3000];
 int sockfd = 0;
-int port2;
+int port2,x=0;
 char ip2[20];
 struct sockaddr_in info;
 int main()
 {
 	char ip[20];
 	int port;
-	printf("§A­n¶Ç°eªº°T®§\n");
-	scanf("%s",buf);
+	printf("by è•‰è•‰ https://www.youtube.com/channel/UCPczJ9COLuFZOoSlvZW7cFw?view_as=subscriber\n");
+	printf("ä½ è¦å‚³é€çš„è¨Šæ¯\n");
+	gets(ip);
 	printf("ip=");
 	scanf("%s",ip);
 	printf("port=");
@@ -30,19 +31,17 @@ int main()
     
     if(WSAStartup(wVersionRequested,&wsaData)!= 0)
     {
-        printf("ªì©l¤ÆWinSock¥¢±Ñ\n");
+        printf("åˆå§‹åŒ–WinSockå¤±æ•—\n");
         return 0;
     }
-	//socketªº«Ø¥ß
     
     int sockfd = 0;
-    sockfd = socket(AF_INET , SOCK_STREAM , 0);
+    sockfd = socket(AF_INET ,SOCK_STREAM , 0);
 
     if (sockfd == -1){
         printf("Fail to create a socket.");
     }
 
-    //socketªº³s½u
     struct sockaddr_in info;
     memset(&info,0,sizeof(info));
     info.sin_family = PF_INET;
@@ -56,25 +55,20 @@ int main()
     }
     
     
-	int i;
-
-//	pthread_t a; // «Å§i pthread ÅÜ¼Æ
- //   pthread_create(&a, NULL, child, NULL); // «Ø¥ß¤l°õ¦æºü
-    
-    int b;
+	int i,b;
     
     while(1)
     {
     	i=0;
 		do
 		{
-			i++;
+			x++;
 			b=send(sockfd,buf,sizeof(buf),0);
-			printf("%d %d\n",i,b);
+			printf("%d success %d size\n",x,b);
 			if(b==-1)
 			{
-				pthread_t a; // «Å§i pthread ÅÜ¼Æ
-	    		pthread_create(&a, NULL, child,NULL); // «Ø¥ß¤l°õ¦æºü
+				pthread_t a; // å®£å‘Š pthread è®Šæ•¸
+	    		pthread_create(&a, NULL, child,NULL); // å»ºç«‹å­åŸ·è¡Œç·’
 	    		pthread_join(a, NULL);
 			}
 			
@@ -85,10 +79,9 @@ int main()
 	    
 	    if(WSAStartup(wVersionRequested,&wsaData)!= 0)
 	    {
-	        printf("ªì©l¤ÆWinSock¥¢±Ñ\n");
+	        printf("åˆå§‹åŒ–WinSockå¤±æ•—\n");
 	        return 0;
 	    }
-		//socketªº«Ø¥ß
 	    
 	    int sockfd = 0;
 	    sockfd = socket(AF_INET , SOCK_STREAM , 0);
@@ -97,7 +90,6 @@ int main()
 	        printf("Fail to create a socket.");
 	    }
 	
-	    //socketªº³s½u
 	    struct sockaddr_in info;
 	    memset(&info,0,sizeof(info));
 	    info.sin_family = PF_INET;
@@ -122,11 +114,10 @@ void* child()
     
 		    if(WSAStartup(wVersionRequested,&wsaData)!= 0)
 		    {
-		        printf("ªì©l¤ÆWinSock¥¢±Ñ\n");
+		        printf("åˆå§‹åŒ–WinSockå¤±æ•—\n");
 		        return 0;
 		    }
-			//socketªº«Ø¥ß
-		    
+			
 		    int sockfd = 0;
 		    sockfd = socket(AF_INET , SOCK_STREAM , 0);
 		
@@ -134,7 +125,6 @@ void* child()
 		        printf("Fail to create a socket.");
 		    }
 		
-		    //socketªº³s½u
 		    struct sockaddr_in info;
 		    memset(&info,0,sizeof(info));
 		    info.sin_family = PF_INET;
@@ -148,13 +138,12 @@ void* child()
     		int b,a=0;
 	while(1)
 	{
-		a++;
+		x++;
 		b=send(sockfd,buf,sizeof(buf),0);
-		printf("%d %d\n",a,b);
+		printf("%d success %d size\n",x,b);
 		if(b==-1)
 		{
 			break;
 		}
 	}
 } 
-
