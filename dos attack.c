@@ -18,7 +18,7 @@ int main()
 	int port;
 	printf("by 蕉蕉 https://www.youtube.com/channel/UCPczJ9COLuFZOoSlvZW7cFw?view_as=subscriber\n");
 	printf("你要傳送的訊息\n");
-	gets(ip);
+	gets(buf);
 	printf("ip=");
 	scanf("%s",ip);
 	printf("port=");
